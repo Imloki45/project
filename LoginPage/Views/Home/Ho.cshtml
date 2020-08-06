@@ -1,0 +1,55 @@
+@{ViewBag.Title="Login Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<label>Admin id</label>
+			<input type="number"/>
+			<br>
+			<label>Password</label>
+			<input type="password" placeholder="*****" />
+			<br>
+			<button>Login</button>
+			<br><br>
+		</form>
+		<div class="sam">
+			<label>Not an admin? </label>
+			<button class="ghost" id="empLogin">Go back</button>
+		</div>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<label>Employee id</label>
+			<input type="number" placeholder="Eg:1872200" />
+			<br>
+			<label>Password</label>
+			<input type="password" placeholder="*****" />
+			<br>
+			<button>Login</button>
+			<br><br>
+		</form>
+		<div class="sam">
+			<label>Are you an admin? </label>
+			<button class="ghost" id="adminLogin">Admin login</button>
+		</div>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+			</div>
+			<div class="overlay-panel overlay-right">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>
