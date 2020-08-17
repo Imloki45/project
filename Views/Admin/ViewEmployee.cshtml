@@ -1,0 +1,143 @@
+﻿@model TCSProject.Models.Employee
+
+
+@{
+    if (Session["AdmId"] == null)
+    {
+        Response.Redirect("~/Employee/Login");
+    }
+    Layout = null;
+
+    //ViewBag.IsEmployeePresent = false;
+
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="text-center"><h4>Employee</h4></div>
+    
+    <hr />
+    <div>
+
+
+        @using (Html.BeginForm())
+        {
+
+            <div class="container align-center">
+
+                <div class="form-group text-center8">
+
+                    <div class="form-inline my-2 my-lg-0">
+                        Employee ID: &nbsp @Html.EditorFor(model => model.EmpId, new { htmlAttributes = new { @class = "form-control mr-sm-2", placeholder = "Search", type = "search" } })
+                        @Html.ValidationMessageFor(model => model.EmpId, "", new { @class = "text-danger" })
+                    </div>
+                    <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" />
+                </div>
+                <!--
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                    </form>
+                -->
+            </div>
+
+        }
+
+        @if (ViewBag.IsEmployeePresent != null)
+        {
+
+
+            if (ViewBag.IsEmployeePresent == true)
+            {
+
+
+                <div class="container text-center" id="view-area">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmpId)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EmpId)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LastName)
+                        </dd>
+
+
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ProjectId)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ProjectId)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.WONNumber)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.WONNumber)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ProjectDetails)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ProjectDetails)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LoginErrorMessage)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LoginErrorMessage)
+                        </dd>
+
+                    </dl>
+                </div>
+            }
+            else
+            {
+                <strong> @Html.ValidationMessageFor(model => model.EmpId, "No such employee found", new { @class = "alert alert-danger" })</strong>
+            }
+        }
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+
+
+}
+@{ 
+    if (Session["EmpId"] == null)
+    {
+        Response.Redirect("~/Employee/Login");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+    <div> 
+        <h1>Welcome @Session["EmpId"] !</h1>
+        <a href="@Url.Action("Login")" >Logout</a>
+    </div>
+</body>
+</html>

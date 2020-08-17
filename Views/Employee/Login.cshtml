@@ -1,0 +1,90 @@
+﻿@model TCSProject.Models.Employee
+@{
+    ViewBag.Title = "Login Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    
+    <style>
+        .alert-danger {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container" id="container">
+
+
+
+
+
+        <div class="form-container sign-in-container">
+            <form action="VerifyEmployee" method="post">
+                <label>Employee id</label>
+                <input type="number" name="EmpId" placeholder="Eg:1872200" required />
+                <br>
+                <label>Password</label>
+                <input type="password" name="Password" placeholder="*****" required />
+                <br>
+                <div class="alert-danger">
+                    <label>@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                </div>
+                <br />
+                <button type="submit">Login</button>
+                <br><br>
+            </form>
+            <div class="sam">
+                <label>Are you an admin? </label>
+                <button class="ghost" id="adminLogin">Admin login</button>
+            </div>
+            <div class="sam">
+                <div class="text-center">
+                    <a href="@Url.Action("ForgotPassword","Employee")"><strong>Forgot Password ?</strong></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container sign-up-container" >
+
+            <form action="~/Admin/VerifyAdmin" method="post">
+                <label>Admin id</label>
+                <input type="number" name="AdmId" placeholder="1872310" required />
+                <br>
+                <label>Password</label>
+                <input type="password" name="Password" placeholder="*****" required />
+                <br>
+                
+                <br />
+                <button>Login</button>
+                <br><br>
+            </form>
+            <div class="sam">
+                <label>Not an admin? </label>
+                <button class="ghost" id="empLogin">Go back</button>
+            </div>
+            <div class="sam">
+                <div class="text-center">
+                    <a href="@Url.Action("ForgotPassword","Admin")"><strong>Forgot Password ?</strong></a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                </div>
+                <div class="overlay-panel overlay-right">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
